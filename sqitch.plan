@@ -3,3 +3,4 @@
 
 appschema 2019-08-04T18:07:29Z Marco Arthur <arthurpbs@gmail.com> # Add schema for project
 extensions [appschema] 2019-08-04T18:29:10Z Marco Arthur <arthurpbs@gmail.com> # Create Geo extensions to database schema
+pgtap 2019-08-04T23:01:00Z Marco Arthur <arthurpbs@gmail.com> # Add pg tap extension
