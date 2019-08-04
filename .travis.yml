@@ -24,7 +24,7 @@ jobs:
     - sudo apt-get install cpanm
 
     install:
-        - cpanm install App::Sqitch DBD::Pg 
+        - cpanm --no-test App::Sqitch DBD::Pg 
     
     before_script:
     - psql -c "ALTER USER travis WITH PASSWORD 'travis';"
@@ -33,4 +33,4 @@ jobs:
     - sqitch deploy 'db:pg://travis@localhost/osm_load'
 
     script:
-    - pg_prove -U travis -d "osm_load" db/tests/
+    - pg_prove -U travis -d "osm_load" tests/*.sql
