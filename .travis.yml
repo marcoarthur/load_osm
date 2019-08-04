@@ -21,7 +21,6 @@ jobs:
     - sudo apt-get install libtap-parser-sourcehandler-pgtap-perl
     - sudo apt-get install pgtap
     - sudo apt-get install -y postgresql-${PGSQL}-postgis-${PGIS}
-    - sudo apt-get install cpanm
 
     install:
         - cpanm --no-test App::Sqitch DBD::Pg 
