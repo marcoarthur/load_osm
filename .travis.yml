@@ -1,0 +1,36 @@
+dist: trusty
+stages:
+  - database
+
+jobs:
+  include:
+  - stage: database
+    env: BUILD=db PGSQL=10 PGIS=2.4 PGPORT=5433
+    language: perl
+    perl:
+        - "5.28"
+        - "5.30"
+    addons:
+      postgresql: 10
+      apt:
+        packages:
+        - postgresql-10
+        - postgresql-10-pgtap
+    before_install:
+    - sudo apt-get -qq update
+    - sudo apt-get install libtap-parser-sourcehandler-pgtap-perl
+    - sudo apt-get install pgtap
+    - sudo apt-get install -y postgresql-${PGSQL}-postgis-${PGIS}
+    - sudo apt-get install libpq-dev libdbd-pg-perl
+
+    install:
+        - cpanm --notest App::Sqitch DBD::Pg 
+    
+    before_script:
+    - psql -c "ALTER USER travis WITH PASSWORD 'travis';"
+    - export PGPASSWORD=travis
+    - psql -U travis -c 'CREATE DATABASE "osm_load";'
+    - sqitch deploy 'db:pg://travis@localhost/osm_load'
+
+    script:
+    - pg_prove -U travis -d "osm_load" t/*.sql
