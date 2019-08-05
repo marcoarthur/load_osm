@@ -21,10 +21,10 @@ jobs:
     - sudo apt-get install libtap-parser-sourcehandler-pgtap-perl
     - sudo apt-get install pgtap
     - sudo apt-get install -y postgresql-${PGSQL}-postgis-${PGIS}
-    - sudo apt-get install libpq-dev
+    - sudo apt-get install libpq-dev libdbd-pg-perl
 
     install:
-        - cpanm --no-test App::Sqitch DBD::Pg 
+        - cpanm --notest App::Sqitch DBD::Pg 
     
     before_script:
     - psql -c "ALTER USER travis WITH PASSWORD 'travis';"
