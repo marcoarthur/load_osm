@@ -3,7 +3,7 @@
 BEGIN;
 
 	DROP EXTENSION hstore;
-	DROP EXTENSION postgis;
 	DROP EXTENSION postgis_topology;
+	DROP EXTENSION postgis;
 
 COMMIT;
