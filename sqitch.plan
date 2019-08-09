@@ -5,3 +5,4 @@ appschema 2019-08-04T18:07:29Z Marco Arthur <arthurpbs@gmail.com> # Add schema f
 extensions [appschema] 2019-08-04T18:29:10Z Marco Arthur <arthurpbs@gmail.com> # Create Geo extensions to database schema
 pgtap 2019-08-04T23:01:00Z Marco Arthur <arthurpbs@gmail.com> # Add pg tap extension
 schema_defs 2019-08-09T03:45:13Z Marco Arthur <arthurpbs@gmail.com> # Add all osmosis postgis simple schema
+@v1.0.0-dev1 2019-08-09T18:49:24Z Marco Arthur <arthurpbs@gmail.com> # Tag v1.0.0-dev1
