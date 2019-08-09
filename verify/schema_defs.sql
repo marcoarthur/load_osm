@@ -2,6 +2,7 @@
 
 BEGIN;
 
+	SET search_path TO osm_brasil,public,topology;
 	select * from schema_info;
 	select * from users;
 	select * from nodes;

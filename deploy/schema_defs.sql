@@ -3,6 +3,8 @@
 BEGIN;
 
 -- Create a table which will contain a single row defining the current schema version.
+SET search_path TO osm_brasil,public,topology;
+
 CREATE TABLE schema_info (
     version integer NOT NULL
 );

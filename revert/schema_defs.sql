@@ -3,6 +3,7 @@
 BEGIN;
 
 -- Drop all tables if they exist.
+SET search_path TO osm_brasil,public,topology;
 DROP TABLE IF EXISTS actions;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS nodes;
