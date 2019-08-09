@@ -33,4 +33,4 @@ jobs:
     - sqitch deploy 'db:pg://travis@localhost/osm_load'
 
     script:
-    - pg_prove -U travis -d "osm_load" t/*.sql
+    - pg_prove -v -U travis -d "osm_load" t/*.sql
