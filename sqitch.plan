@@ -8,3 +8,4 @@ schema_defs 2019-08-09T03:45:13Z Marco Arthur <arthurpbs@gmail.com> # Add all os
 @v1.0.0-dev1 2019-08-09T18:49:24Z Marco Arthur <arthurpbs@gmail.com> # Tag v1.0.0-dev1
 
 linestring 2019-10-01T13:02:06Z Marco Arthur <arthurpbs@gmail.com> # Add the linestring from osmosis(1) pg schema\n\n1 - https://tracker.debian.org/pkg/osmosis
+bbox [linestring] 2019-10-01T14:09:18Z Marco Arthur <arthurpbs@gmail.com> # Add the bbox from osmosis(1) schema definition\n\n1 - https://tracker.debian.org/pkg/osmosis
