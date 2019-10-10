@@ -16,9 +16,9 @@ OSM_TASK_WRITE = --write-pgsql-dump-0.6 \
 				nodeLocationStoreType=CompactTempFile \
 				directory=$(DATA_DIR)
 OSM_FLAG = -v 100
-OSM_TAKS_READ  = --read-xml file=$(OSM_FILE)
-OSMOSIS_FLAGS = $(OSM_FLAG) $(OSM_TASK_READ) $(OSM_WRITE)
-LOAD_FILE = /usr/share/doc/osmosis/examples/pgsnapshot_load_0.6.sql
+OSM_TASK_READ  = --read-xml file=$(OSM_FILE)
+OSMOSIS_FLAGS = $(OSM_FLAG) $(OSM_TASK_READ) $(OSM_TASK_WRITE)
+LOAD_FILE = /home/itaipu/tools/databases/postgis/pgsnapshot_load_0.6.sql
 OSM_BBOX = "-45.091,-23.448,-45.066,-23.423"
 OSM_API = "https://api.openstreetmap.org/api/0.6/map?bbox="
 
