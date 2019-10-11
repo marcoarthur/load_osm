@@ -23,7 +23,8 @@ CREATE TABLE nodes (
     version int NOT NULL,
     user_id int NOT NULL,
     tstamp timestamp without time zone NOT NULL,
-    changeset_id bigint NOT NULL
+    changeset_id bigint NOT NULL,
+	tags hstore
 );
 -- Add a postgis point column holding the location of the node.
 SELECT AddGeometryColumn('nodes', 'geom', 4326, 'POINT', 2);
@@ -43,7 +44,9 @@ CREATE TABLE ways (
     version int NOT NULL,
     user_id int NOT NULL,
     tstamp timestamp without time zone NOT NULL,
-    changeset_id bigint NOT NULL
+    changeset_id bigint NOT NULL,
+	tags hstore,
+	nodes text NOT NULL
 );
 
 
@@ -69,7 +72,8 @@ CREATE TABLE relations (
     version int NOT NULL,
     user_id int NOT NULL,
     tstamp timestamp without time zone NOT NULL,
-    changeset_id bigint NOT NULL
+    changeset_id bigint NOT NULL,
+	tags hstore
 );
 
 -- Create a table for representing relation member relationships.
