@@ -18,7 +18,7 @@ OSM_TASK_WRITE = --write-pgsql-dump-0.6 \
 OSM_FLAG = -v 100
 OSM_TASK_READ  = --read-xml file=$(OSM_FILE)
 OSMOSIS_FLAGS = $(OSM_FLAG) $(OSM_TASK_READ) $(OSM_TASK_WRITE)
-LOAD_FILE = /home/itaipu/tools/databases/postgis/pgsnapshot_load_0.6.sql
+LOAD_FILE = $(PWD)/script/load_data.sql
 OSM_BBOX = "-45.091,-23.448,-45.066,-23.423"
 OSM_API = "https://api.openstreetmap.org/api/0.6/map?bbox="
 
@@ -44,3 +44,4 @@ test: deploy
 revert:
 	sqitch revert -y $(DB_URI)
 	rm -rf $(OSM_FILE)
+	rm -rf $(DATA_DIR)
