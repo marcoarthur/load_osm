@@ -28,7 +28,7 @@ all: deploy load test
 
 deploy:
 	createdb -U devel -h 127.0.0.1 make_test || true
-	sqitch deploy $(DB_URI)
+	sqitch deploy $(DB_URI) --to-change bbox
 
 osm_data.osm: 
 	wget -O $(OSM_FILE) $(OSM_API)$(OSM_BBOX)
@@ -37,6 +37,7 @@ load: $(OSM_FILE) $(LOAD_FILE)
 	mkdir -p $(DATA_DIR)
 	osmosis $(OSMOSIS_FLAGS)
 	cd $(DATA_DIR) && psql -U $(DB_USER) -h $(DB_HOST) -d $(DB_DBNAME) -f $(LOAD_FILE)
+	sqitch deploy $(DB_URI) --to-change fts
 
 test: deploy
 	 pg_prove $(PG_PROVE_FLAGS) -U $(DB_USER) -h $(DB_HOST) -d $(DB_DBNAME) $(TEST_DIR)/*
