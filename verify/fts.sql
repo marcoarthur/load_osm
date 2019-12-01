@@ -3,7 +3,7 @@
 BEGIN;
 
 	-- column was created
-	SELECT ways_fts FROM ways;
+	SELECT ways_fts FROM osm_brasil.ways;
 
 	-- index was created
 	SELECT count(*) > 0
