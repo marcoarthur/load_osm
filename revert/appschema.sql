@@ -2,6 +2,6 @@
 
 BEGIN;
 
-	DROP SCHEMA osm_brasil;
+	DROP SCHEMA osm_brasil CASCADE;
 
 COMMIT;
