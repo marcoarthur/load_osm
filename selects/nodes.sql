@@ -3,11 +3,16 @@
 Show all places that are within a 15 meters distance from a river.
 
 */
-SELECT n.id, n.tags
+SELECT n.id, n.tags, ST_Distance( ST_Transform(n.geom,3857) , ST_Transform(w.linestring,3857)) as distance
 FROM osm_brasil.nodes n, osm_brasil.ways w
-WHERE  w.tags -> 'waterway' = 'river' AND
+WHERE  (
+        w.tags -> 'waterway' = 'river' OR
+        w.tags -> 'waterway' = 'stream' OR
+        w.tags -> 'waterway' = 'canal'
+       )AND
        n.tags -> 'name' IS NOT NULL AND
-       st_dwithin(w.linestring, n.geom, 15);
+       ST_dwithin( ST_Transform( w.linestring, 3857 ), ST_Transform(n.geom, 3857), 100 )
+ORDER BY distance;
 
 /* A function that do the same, but makes the distance as an option */
 CREATE OR REPLACE FUNCTION osm_brasil.closer_than( distance INTEGER )
@@ -18,9 +23,13 @@ BEGIN
 
     SELECT n.id, n.tags
     FROM osm_brasil.nodes n, osm_brasil.ways w
-    WHERE  w.tags -> 'waterway' = 'river' AND
+    WHERE (
+            w.tags -> 'waterway' = 'river' OR
+            w.tags -> 'waterway' = 'stream' OR
+            w.tags -> 'waterway' = 'canal'
+          ) AND
            n.tags -> 'name' IS NOT NULL AND
-           st_dwithin(w.linestring, n.geom, distance);
+           st_dwithin( ST_Transform(w.linestring, 3857), ST_Transform(n.geom, 3857), distance);
 END;
 $$
 LANGUAGE 'plpgsql';
