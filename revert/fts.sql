@@ -2,6 +2,6 @@
 
 BEGIN;
 
-	ALTER TABLE ways DROP COLUMN ways_fts CASCADE;
+	ALTER TABLE osm_brasil.ways DROP COLUMN ways_fts CASCADE;
 
 COMMIT;
