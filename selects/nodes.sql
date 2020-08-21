@@ -1,6 +1,13 @@
 /*
+ All waterways and their length in meters
+*/
 
-Show all places that are within a 15 meters distance from a river.
+SELECT 'https://www.openstreetmap.org/?way=' || w.id as url,
+       w.tags -> 'name' AS river,
+       ST_Perimeter(ST_Transform(w.linestring, 3857))/1000 AS length
+FROM osm_brasil.ways w
+WHERE w.tags -> 'waterway' IS NOT NULL
+ORDER BY length;
 
 */
 SELECT n.id, n.tags, ST_Distance( ST_Transform(n.geom,3857) , ST_Transform(w.linestring,3857)) as distance
