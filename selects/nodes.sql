@@ -9,8 +9,16 @@ FROM osm_brasil.ways w
 WHERE w.tags -> 'waterway' IS NOT NULL
 ORDER BY length;
 
+/*
+  Search for buildings as nodes
 */
-SELECT n.id, n.tags, ST_Distance( ST_Transform(n.geom,3857) , ST_Transform(w.linestring,3857)) as distance
+
+SELECT 'https://www.openstreetmap.org/?node=' || n.id as url,
+        n.tags,
+        n.geom 
+FROM osm_brasil.nodes n
+WHERE n.tags -> 'building' is not null;
+
 FROM osm_brasil.nodes n, osm_brasil.ways w
 WHERE  (
         w.tags -> 'waterway' = 'river' OR
