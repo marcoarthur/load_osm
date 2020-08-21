@@ -19,6 +19,15 @@ SELECT 'https://www.openstreetmap.org/?node=' || n.id as url,
 FROM osm_brasil.nodes n
 WHERE n.tags -> 'building' is not null;
 
+/*
+ Search buildings as ways
+*/
+
+SELECT 'https://www.openstreetmap.org/?way=' || w.id as url,
+        w.tags,
+        w.linestring
+FROM osm_brasil.ways w
+WHERE w.tags -> 'building' IS NOT NULL;
 FROM osm_brasil.nodes n, osm_brasil.ways w
 WHERE  (
         w.tags -> 'waterway' = 'river' OR
