@@ -30,4 +30,4 @@ FROM (
 SELECT finish(); 
 ROLLBACK; 
 
--- dbext:type=PGSQL:user=gis:host=127.0.0.1:dbname=lbo
+-- dbext:type=PGSQL:user=devel:host=127.0.0.1:dbname=make_test
