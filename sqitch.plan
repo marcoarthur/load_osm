@@ -11,3 +11,4 @@ linestring 2019-10-01T13:02:06Z Marco Arthur <arthurpbs@gmail.com> # Add the lin
 bbox [linestring] 2019-10-01T14:09:18Z Marco Arthur <arthurpbs@gmail.com> # Add the bbox from osmosis(1) schema definition\n\n1 - https://tracker.debian.org/pkg/osmosis
 fts 2019-10-28T13:52:41Z Marco Arthur <arthurpbs@gmail.com> # Add full text search support for tags
 append_osm_url_funct 2020-09-04T19:07:32Z Marco Arthur <arthurpbs@gmail.com> # Append url\n\nFunction to append url given id of the object
+view_st_noname 2020-09-18T02:49:15Z Marco Arthur <arthurpbs@gmail.com> # View streets_without_name\n\nThis creates a view that selects the streets without name in osm_brasil

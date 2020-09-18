@@ -148,3 +148,21 @@ WHERE (
     n.tags -> 'traffic_calming' IS NOT NULL
 );
 
+ -- Nice way to save cvs file
+/* COPY (<put-query-here>) TO STDOUT WITH (FORMAT CSV);*/
+
+SELECT osm_brasil.map_url('way', id),
+         w.tags,
+         st_perimeter(w.linestring) as l2,
+         st_perimeter(st_transform(w.linestring, 3857)) / 1000 AS length
+FROM osm_brasil.ways w
+WHERE (
+    w.tags -> 'highway' = 'track'
+)
+ORDER BY length;
+
+/* CRS */
+
+SELECT * FROM spatial_ref_sys WHERE srid = 3857;
+
+-- dbext:type=PGSQL:user=devel:host=127.0.0.1:dbname=make_test
