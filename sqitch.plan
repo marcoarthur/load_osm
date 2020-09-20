@@ -13,3 +13,4 @@ fts 2019-10-28T13:52:41Z Marco Arthur <arthurpbs@gmail.com> # Add full text sear
 append_osm_url_funct 2020-09-04T19:07:32Z Marco Arthur <arthurpbs@gmail.com> # Append url\n\nFunction to append url given id of the object
 view_st_noname 2020-09-18T02:49:15Z Marco Arthur <arthurpbs@gmail.com> # View streets_without_name\n\nThis creates a view that selects the streets without name in osm_brasil
 function_unnamed_street_in_area 2020-09-18T03:01:53Z Marco Arthur <arthurpbs@gmail.com> # Add new function\n\nosm_brasil.unnamed_st_within(area) searchs unnamed streets in a given area.
+view_big_areas 2020-09-20T02:12:27Z Marco Arthur <arthurpbs@gmail.com> # Create a view for big areas and how they are tagged
