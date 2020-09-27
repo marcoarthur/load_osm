@@ -37,7 +37,7 @@ load: $(OSM_FILE) $(LOAD_FILE)
 	mkdir -p $(DATA_DIR)
 	osmosis $(OSMOSIS_FLAGS)
 	cd $(DATA_DIR) && psql -U $(DB_USER) -h $(DB_HOST) -d $(DB_DBNAME) -f $(LOAD_FILE)
-	sqitch deploy $(DB_URI) --to-change fts
+	sqitch deploy $(DB_URI)
 
 test: deploy
 	 pg_prove $(PG_PROVE_FLAGS) -U $(DB_USER) -h $(DB_HOST) -d $(DB_DBNAME) $(TEST_DIR)/*
