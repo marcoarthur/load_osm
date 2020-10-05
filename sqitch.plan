@@ -15,3 +15,4 @@ view_st_noname 2020-09-18T02:49:15Z Marco Arthur <arthurpbs@gmail.com> # View st
 function_unnamed_street_in_area 2020-09-18T03:01:53Z Marco Arthur <arthurpbs@gmail.com> # Add new function\n\nosm_brasil.unnamed_st_within(area) searchs unnamed streets in a given area.
 view_big_areas 2020-09-20T02:12:27Z Marco Arthur <arthurpbs@gmail.com> # Create a view for big areas and how they are tagged
 join_street_segments 2020-09-23T13:52:06Z Marco Arthur <arthurpbs@gmail.com> # Get street segments and join them
+economy_view 2020-10-05T20:40:08Z Marco Arthur <arthurpbs@gmail.com> # Add economy view to the schema\n\nThis add some business tables that we can create using again tags information
