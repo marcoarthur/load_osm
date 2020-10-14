@@ -20,6 +20,18 @@ FROM osm_brasil.business b
 GROUP BY type 
 ORDER BY total;
 
+CREATE OR REPLACE FUNCTION osm_brasil.summary_business_by_area( area geometry(Geometry,4326) )
+RETURNS SETOF osm_brasil.summary_business AS
+$$
+      SELECT b.type,
+             count(*) as total
+      FROM osm_brasil.business b
+      WHERE st_within( b.geom, area )
+      GROUP BY type
+      ORDER BY total;
+$$
+LANGUAGE SQL;
+
 COMMIT;
 
 -- dbext:type=PGSQL:user=devel:host=127.0.0.1:dbname=make_test
