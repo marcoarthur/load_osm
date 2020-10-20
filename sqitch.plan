@@ -16,3 +16,4 @@ function_unnamed_street_in_area 2020-09-18T03:01:53Z Marco Arthur <arthurpbs@gma
 view_big_areas 2020-09-20T02:12:27Z Marco Arthur <arthurpbs@gmail.com> # Create a view for big areas and how they are tagged
 join_street_segments 2020-09-23T13:52:06Z Marco Arthur <arthurpbs@gmail.com> # Get street segments and join them
 economy_view 2020-10-05T20:40:08Z Marco Arthur <arthurpbs@gmail.com> # Add economy view to the schema\n\nThis add some business tables that we can create using again tags information
+aggregate_business_view 2020-10-20T21:17:52Z Marco Arthur <arthurpbs@gmail.com> # Aggregate business by type\n\nThis is a view of business aggregation by its type (devired from their tags)
