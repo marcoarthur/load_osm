@@ -5,11 +5,18 @@ BEGIN;
     CREATE OR REPLACE FUNCTION osm_brasil.map_url( tbl TEXT, id  BIGINT )
     RETURNS TEXT AS $$
     DECLARE str TEXT;
+    DECLARE arg TEXT;
     BEGIN
-        str := 'https://www.openstreetmap.org/?' || tbl || '=' || id;
+        arg := lower(tbl);
+        IF arg NOT IN('way','node') THEN
+            RAISE EXCEPTION 'NOT valid Argument';
+        END IF;
+        str := 'https://www.openstreetmap.org/?' || arg || '=' || id;
         RETURN str;
     END;
     $$
     LANGUAGE 'plpgsql';
 
 COMMIT;
+
+-- dbext:type=PGSQL:user=devel:host=127.0.0.1:dbname=make_test
