@@ -1,8 +1,8 @@
 BEGIN; 
 SELECT no_plan(); 
 
-PREPARE call_map_url AS SELECT osm_brasil.map_url('ways', 10);
-PREPARE map_url_result  AS VALUES ('https://www.openstreetmap.org/?ways=10'::text);
+PREPARE call_map_url AS SELECT osm_brasil.map_url('way', 10);
+PREPARE map_url_result  AS VALUES ('https://www.openstreetmap.org/?way=10'::text);
 
 SELECT results_eq( 'call_map_url', 
     'map_url_result', 'osm_brasil.map_url()' );
