@@ -2,6 +2,6 @@
 
 BEGIN;
 
-    SELECT * FROM osm_brasil.oaddr;
+    SELECT * FROM osm_brasil.oaddr LIMIT 10;
 
 ROLLBACK;
