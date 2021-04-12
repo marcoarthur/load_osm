@@ -27,7 +27,7 @@ OSM_API = "https://api.openstreetmap.org/api/0.6/map?bbox="
 all: deploy load test
 
 deploy:
-	createdb -U devel -h 127.0.0.1 make_test || true
+	createdb -U $(DB_USER) -h $(DB_HOST) $(DB_DBNAME) || true
 	sqitch deploy $(DB_URI) --to-change bbox
 
 osm_data.osm: 

@@ -16,3 +16,5 @@ function_unnamed_street_in_area 2020-09-18T03:01:53Z Marco Arthur <arthurpbs@gma
 view_big_areas 2020-09-20T02:12:27Z Marco Arthur <arthurpbs@gmail.com> # Create a view for big areas and how they are tagged
 join_street_segments 2020-09-23T13:52:06Z Marco Arthur <arthurpbs@gmail.com> # Get street segments and join them
 economy_view 2020-10-05T20:40:08Z Marco Arthur <arthurpbs@gmail.com> # Add economy view to the schema\n\nThis add some business tables that we can create using again tags information
+openaddress 2020-12-11T18:27:27Z Marco Arthur <arthurpbs@gmail.com> # OpenAddress project datum\n\nOpen Address project has collections of address we want import from
+geometry_and_pk_oaddr 2020-12-11T19:33:04Z Marco Arthur <arthurpbs@gmail.com> # Add geometry column and primary key constraint to oaddr\n\nOpen Address table
