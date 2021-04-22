@@ -8,8 +8,8 @@ jobs:
     env: BUILD=db PGSQL=12 PGIS=3 PGPORT=5433
     language: perl
     perl:
-        - "5.28"
         - "5.30"
+        - "5.32"
     addons:
       postgresql: 12
       apt:
