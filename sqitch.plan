@@ -18,3 +18,4 @@ join_street_segments 2020-09-23T13:52:06Z Marco Arthur <arthurpbs@gmail.com> # G
 economy_view 2020-10-05T20:40:08Z Marco Arthur <arthurpbs@gmail.com> # Add economy view to the schema\n\nThis add some business tables that we can create using again tags information
 openaddress 2020-12-11T18:27:27Z Marco Arthur <arthurpbs@gmail.com> # OpenAddress project datum\n\nOpen Address project has collections of address we want import from
 geometry_and_pk_oaddr 2020-12-11T19:33:04Z Marco Arthur <arthurpbs@gmail.com> # Add geometry column and primary key constraint to oaddr\n\nOpen Address table
+ibge_sectors 2021-04-27T18:33:21Z Marco Arthur <arthurpbs@gmail.com> # Add ibge geometry data for sectors in Ubatuba-SP
