@@ -20,9 +20,10 @@ WITH rivers_sectors AS (
              w.tags -> 'name' AS river,
              ST_Perimeter(ST_Transform(w.linestring, 3857))/1000 AS length,
              ibs.id as sector_id
-      FROM osm_brasil.ways w, osm_brasil.ibge_sectors ibs
-      WHERE w.tags -> 'waterway' IS NOT NULL AND
-            ST_Crosses(ibs.geom, w.linestring)
+      FROM  osm_brasil.ibge_sectors ibs
+            LEFT JOIN osm_brasil.ways w
+            ON ST_Crosses(ibs.geom, w.linestring)
+      WHERE w.tags -> 'waterway' IS NOT NULL
       ORDER BY length
 ) SELECT url, array_agg(sector_id) as sectors
 FROM rivers_sectors
@@ -46,5 +47,6 @@ WITH tagged_nodes_by_sector AS (
 SELECT sector_id, sector_area_km, total_tagged / sector_area_km  AS density
 FROM tagged_nodes_by_sector
 ORDER BY density DESC;
+
 
 -- dbext:type=PGSQL:user=devel:host=127.0.0.1:dbname=gis
