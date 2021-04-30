@@ -10,6 +10,9 @@ BEGIN;
     SELECT properties->>'name' AS id, ST_GeomFromGeoJson(geometry) AS geom
     INTO TABLE osm_brasil.ibge_sectors
     FROM t_aux, jsonb_to_recordset(t_aux.j->'features') AS ele(type text, geometry text, properties jsonb);
+
+    -- Update SRID for ibge_sectors geometry
+    SELECT UpdateGeometrySRID('osm_brasil','ibge_sectors', 'geom', 4326);
     
 COMMIT;
 
