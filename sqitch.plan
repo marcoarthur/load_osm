@@ -20,3 +20,4 @@ openaddress 2020-12-11T18:27:27Z Marco Arthur <arthurpbs@gmail.com> # OpenAddres
 geometry_and_pk_oaddr 2020-12-11T19:33:04Z Marco Arthur <arthurpbs@gmail.com> # Add geometry column and primary key constraint to oaddr\n\nOpen Address table
 ibge_sectors 2021-04-27T18:33:21Z Marco Arthur <arthurpbs@gmail.com> # Add ibge geometry data for sectors in Ubatuba-SP
 rivers_view 2021-04-30T19:04:19Z Marco Arthur <arthurpbs@gmail.com> # Add a view that do select the rivers
+school_views 2021-05-03T18:37:38Z Marco Arthur <arthurpbs@gmail.com> # Table view for schools
