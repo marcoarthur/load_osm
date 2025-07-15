@@ -1,5 +1,6 @@
 # Status
-[![Build Status](https://travis-ci.com/marcoarthur/load_osm.svg?branch=master)](https://travis-ci.com/marcoarthur/load_osm)
+![CI](https://github.com/marcoarthur/load_osm/actions/workflows/ci.yml/badge.svg)
+
 
 
 # Using pgtap and sqitch in order to construct databases schemas 
