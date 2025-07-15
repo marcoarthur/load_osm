@@ -1,4 +1,6 @@
-# [![Build Status](https://travis-ci.org/marcoarthur/load_osm.svg?branch=master)](https://travis-ci.org/marcoarthur/load_osm)
+# Status
+[![Build Status](https://travis-ci.com/marcoarthur/load_osm.svg?branch=master)](https://travis-ci.com/marcoarthur/load_osm)
+
 
 # Using pgtap and sqitch in order to construct databases schemas 
 
