@@ -14,11 +14,11 @@ jobs:
       postgres:
         image: postgres:12
         env:
-          POSTGRES_USER: travis
-          POSTGRES_PASSWORD: travis
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
           POSTGRES_DB: postgres
         ports:
-          - 5433:5432
+          - 5432:5432
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -30,10 +30,10 @@ jobs:
         perl-version: [ '5.40', '5.38' ]
 
     env:
-      PGPORT: 5433
-      PGSQL: 12
-      PGIS: 3
-      PGPASSWORD: travis
+      PGPORT: 5432  # Matches the exposed port in services.postgres
+      PGHOST: localhost
+      PGUSER: postgres
+      PGPASSWORD: postgres
 
     steps:
       - uses: actions/checkout@v4
@@ -46,7 +46,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y postgresql-client libtap-parser-sourcehandler-pgtap-perl pgtap libpq-dev libdbd-pg-perl sqitch libdbd-pg-perl postgresql-$PGSQL-postgis-$PGIS
+          sudo apt-get install -y postgresql-client libtap-parser-sourcehandler-pgtap-perl pgtap libpq-dev libdbd-pg-perl sqitch postgresql-postgis
           cpanm --notest App::Sqitch DBD::Pg
 
       - name: Wait for PostgreSQL to be ready
@@ -55,10 +55,9 @@ jobs:
 
       - name: Set up test database
         run: |
-          psql -h localhost -U travis -p $PGPORT -c "ALTER USER travis WITH PASSWORD 'travis';"
-          psql -h localhost -U travis -p $PGPORT -c 'CREATE DATABASE "osm_load";'
-          sqitch deploy db:pg://travis@localhost:$PGPORT/osm_load
+          psql -h localhost -U postgres -p $PGPORT -c 'CREATE DATABASE osm_load;'
+          sqitch deploy db:pg://postgres:postgres@localhost:$PGPORT/osm_load
 
       - name: Run pgTAP tests
         run: |
-          pg_prove -v -U travis -h localhost -p $PGPORT -d osm_load t/*.sql
+          pg_prove -v -U postgres -h localhost -p $PGPORT -d osm_load t/*.sql
